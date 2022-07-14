@@ -26,7 +26,7 @@ function App() {
     }}, [])
     useEffect(() => {
         if (maxValue < 0 || maxValue <= startValue) {
-            setText('enter values and press "set"')
+            setText("enter values and press 'set'")
             setError1('Incorrect value')
         } else {
             setError1('')
@@ -35,7 +35,7 @@ function App() {
     }, [maxValue, startValue])
 
     useEffect(() => {
-        setText('enter values and press "set"')
+        setText("enter values and press 'set'")
         if (startValue < 0 || maxValue <= startValue) {
             setError2('Incorrect value')
         } else {

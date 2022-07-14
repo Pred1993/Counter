@@ -1,7 +1,7 @@
-import classes from "./Counter.module.css";
 import SuperButton from "./SuperButton/SuperButton";
 import React from "react";
 import SuperInput from "./SuperInput/SuperInput";
+import s from './Setting.module.css'
 
 export type SettingPropsType = {
     counter: number
@@ -31,21 +31,23 @@ export const Setting = (props: SettingPropsType) => {
         props.changeCounter()
     }
     return (
-        <div className={classes.App}>
-            <div className={classes.Rectangle}>
-                <div className={props.counter === props.maxValue ? classes.Count : classes.Count1}>
-                    <SuperInput type={"number"}
-                                value={props.maxValue}
-                                onChangeNumber={onClickHandlerSetMax}
-                                error={props.error1}
-                    />
-                    <SuperInput type={"number"}
-                                value={props.startValue}
-                                onChangeNumber={onClickHandlerSetStart}
-                                error={props.error2}
-                    />
+        <div>
+            <div className={s.setting}>
+                <div className={s.input}>
+                    <div className={s.maxValue}><span className={s.textMax}>max value:   </span>
+                        <SuperInput type={"number"}
+                                    value={props.maxValue}
+                                    onChangeNumber={onClickHandlerSetMax}
+                                    error={props.error1}
+                        /></div>
+                    <div className={s.startValue}><span className={s.textStart}>start value: </span>
+                        <SuperInput type={"number"}
+                                    value={props.startValue}
+                                    onChangeNumber={onClickHandlerSetStart}
+                                    error={props.error2}
+                        /></div>
                 </div>
-                <div className={classes.Buttons}>
+                <div className={s.button}>
                     <SuperButton
                         disabled={props.startValue < 0 || props.maxValue < 0 || props.maxValue <= props.startValue }
                         onClick={onClickHandlerSet}

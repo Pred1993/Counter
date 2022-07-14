@@ -22,12 +22,12 @@ export const Counter = (props: CounterPropsType) => {
     }
     return (
         <div>
-            <div className={s.Rectangle}>
+            <div className={s.counter}>
                 <div className={props.counter === props.maxValue ? s.Count : s.Count1}>{props.error1 || props.error2
-                    ? <span>Incorrect value</span>
-                    : props.text ? props.text : props.counter }
+                    ? <span className={s.error}>Incorrect value</span>
+                    : props.text ? <span className={s.text}>{props.text}</span> : props.counter }
                 </div>
-                <div className={s.Buttons}>
+                <div className={s.buttons}>
                     <SuperButton
                         disabled={props.counter === props.maxValue} onClick={onClickHandlerInc}
                     >
